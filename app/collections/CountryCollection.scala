@@ -10,7 +10,6 @@ import reactivemongo.play.json.collection.JSONCollection
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import reactivemongo.play.json.BSONFormats._
 
 /**
   * @author anand
@@ -18,12 +17,13 @@ import reactivemongo.play.json.BSONFormats._
 @Singleton
 class CountryCollection @Inject()(mongoApi: ReactiveMongoApi) {
 
+  import reactivemongo.play.json.BSONFormats._
   implicit val countryFormat = Json.format[Country]
 
   private def countries: Future[JSONCollection] = mongoApi.database.map(_.collection[JSONCollection]("countries"))
 
-  def search(): Future[List[Country]] = {
-    val query = Json.obj("_id" -> Json.obj("$exists" -> true))
+  def search(criteria: String): Future[List[Country]] = {
+    val query = Json.obj("$text" -> Json.obj("$search" -> criteria))
     countries.flatMap(_.find(query).cursor[Country]().collect[List]())
   }
 

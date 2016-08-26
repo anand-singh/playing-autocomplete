@@ -9,7 +9,7 @@ scalaVersion := "2.11.7"
 libraryDependencies ++= Seq(jdbc, cache, ws)
 
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.12-RC2",
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.14",
   "org.webjars" %% "webjars-play" % "2.5.0",
   "org.webjars" % "jquery" % "3.1.0",
   "org.webjars" % "bootswatch-united" % "3.3.5+4",

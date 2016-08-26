@@ -3,7 +3,7 @@
 * A String containing a message to display.
 * webJarAssets object
 *@
-@(countries: List[domains.Country])(webJarAssets: WebJarAssets)
+@(message: String)(webJarAssets: WebJarAssets)
 
 @*
 * Call the `main` template with three arguments.
@@ -16,11 +16,11 @@
 <!-- Begin page content -->
 <div class="container">
     <div class="page-header">
-        <h3>Welcome to Play</h3>
+
     </div>
-    @countries.map { country =>
-        @country.name | @country.code
-    }
+
+    <input class="form-control input-lg typeahead" type="text" placeholder="Search countries...">
+
 </div>
 
 }(webJarAssets)
