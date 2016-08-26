@@ -19,7 +19,7 @@ $('.typeahead').typeahead({
                 var result = [];
                 $.each(data, function(index, val) {
                     result.push({
-                        value: val.code + " : " + val.name + " - " + val.continent
+                        value: val.name + " - " + val.code + " : " + val.continent
                     });
                 });
                 cb(result);

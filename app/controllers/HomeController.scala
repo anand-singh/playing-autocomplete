@@ -24,6 +24,7 @@ class HomeController @Inject()
  countryCollection: CountryCollection) extends Controller {
 
   import reactivemongo.play.json.BSONFormats._
+
   implicit val countryFormat = Json.format[Country]
 
   def searchForm = Form(single("criteria" -> nonEmptyText))
@@ -38,6 +39,11 @@ class HomeController @Inject()
     Ok(views.html.index("Welcome")(webJarAssets))
   }
 
+  /**
+    * Serve autocomplete request
+    *
+    * @return
+    */
   def autocomplete = Action.async { implicit request =>
     searchForm.bindFromRequest.fold(
       formWithErrors => {
