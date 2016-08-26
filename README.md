@@ -12,7 +12,7 @@ This is a classic AutoComplete application, backed by a MongoDB database. It dem
 -----------------------------------------------------------------------
 ### Prerequisite
 -----------------------------------------------------------------------
-- Pre Installed MongoDB if you do not have it already. You can get it from here: [https://docs.mongodb.com/manual/installation/)
+- Pre Installed MongoDB if you do not have it already. You can get it from [here](https://docs.mongodb.com/manual/installation/)
 - Create DB `autocomplete` by executing `$ use autocomplete`
 - Create collection `countries` by executing `$ db.createCollection("countries")`
 - Import CSV data into `countries` collection
