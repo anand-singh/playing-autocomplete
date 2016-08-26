@@ -1,20 +1,26 @@
 @*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
-@(message: String)(webJarAssets: WebJarAssets)
+* This template takes a two arguments
+* A String containing a message to display.
+* webJarAssets object
+*@
+@(countries: List[domains.Country])(webJarAssets: WebJarAssets)
 
 @*
- * Call the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
+* Call the `main` template with three arguments.
+* The first argument is a `String` with the title of the page.
+* The second argument is an `Html` object containing the body of the page.
+* And third argument is an `webJarAssets` object.
+*@
 @main("Welcome to Play") {
 
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    @play20.welcome(message, style = "Scala")
+<!-- Begin page content -->
+<div class="container">
+    <div class="page-header">
+        <h3>Welcome to Play</h3>
+    </div>
+    @countries.map { country =>
+        @country.name | @country.code
+    }
+</div>
 
 }(webJarAssets)
