@@ -8,6 +8,8 @@ This is a classic AutoComplete application, backed by a MongoDB database. It dem
 - Replaced the embedded JS & CSS libraries with [WebJars](http://www.webjars.org/).
 - Play and Scala-based template engine implementation
 - Bootswatch-United with Twitter Bootstrap to improve the look and feel of the application
+ 
+![Screen View](/public/images/screen.png)
 
 -----------------------------------------------------------------------
 ### Prerequisite
